@@ -11,8 +11,8 @@ namespace Concert.Domain.Entities
         {
             Name = name;
 
-            new ValidationContract().IsNotNullOrEmpty(Name, "Nome", "Nome não pode ser nulo");
-            new ValidationContract().HasMinLen(Name, 3, "Nome", "Nome deve conter no mínimo 3 caracteres");
+            AddNotifications(new ValidationContract().IsNotNullOrEmpty(Name, "Nome", "Nome não pode ser nulo"));
+            AddNotifications(new ValidationContract().HasMinLen(Name, 3, "Nome", "Nome deve conter no mínimo 3 caracteres"));
         }
 
         public string Name { get; private set; }

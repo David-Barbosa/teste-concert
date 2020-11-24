@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Concert.Domain", "concert.D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Concert.Shared", "concert.Shared\Concert.Shared.csproj", "{390047A7-3EDC-4A65-B657-D53660B845CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Concert.Api", "Concert.Api\Concert.Api.csproj", "{15118583-3015-42EA-BEDA-9A8C9875A607}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Concert.Api", "Concert.Api\Concert.Api.csproj", "{15118583-3015-42EA-BEDA-9A8C9875A607}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

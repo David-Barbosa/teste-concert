@@ -1,8 +1,11 @@
-﻿using Concert.Domain.Commands.Handlers;
+﻿using Concert.Api.ConfigHub;
+using Concert.Api.RabbitMQHelper;
+using Concert.Domain.Commands.Handlers;
 using Concert.Domain.Interfaces;
 using Concert.Infra.Context;
 using Concert.Infra.Repositories;
 using Concert.Infra.Transactions;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Concert.Api.Configurations
@@ -22,6 +25,10 @@ namespace Concert.Api.Configurations
 
             //Commands Handlers
             services.AddTransient<UserCommandHandler, UserCommandHandler>();
+            services.AddTransient<CardCommandHandler, CardCommandHandler>();
+            services.AddTransient<UserStoryCommandHandler, UserStoryCommandHandler>();
+
+            services.AddTransient<IRabbitMQHelper, RabbitMQHelpers>();
         }
     }
 }

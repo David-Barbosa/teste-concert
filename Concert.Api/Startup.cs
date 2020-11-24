@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using System.Text;
+using Concert.Api.ConfigHub;
 using Concert.Api.Configurations;
 using Concert.Api.Security;
 using Concert.Shared;
@@ -48,8 +49,18 @@ namespace Concert.Api
             });
 
             services.AddControllers();
+            services.AddSignalR();
 
-            services.AddCors();
+            //services.AddCors();
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    builder => builder.WithOrigins("https://localhost:44373")
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials());
+            });
+
             services.AddMvcCore(opt =>
             {
                 opt.UseCentralRoutePrefix(new RouteAttribute("api/v1"));
@@ -112,10 +123,13 @@ namespace Concert.Api
 
             app.UseAuthorization();
 
+            app.UseCors();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<VotesHub>("/voteshub");
             });
+
 
             app.UseSwagger();
             app.UseSwaggerUI(c =>

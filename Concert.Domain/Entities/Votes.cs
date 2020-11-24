@@ -21,5 +21,6 @@ namespace Concert.Domain.Entities
         public int UserStoryId { get; private set; }
         public virtual UserStory UserStory { get; private set; }
 
+        public override string ToString() => $"Usuário {UserId} - votou {Card.ValueCard} para a história {UserStory.Description}";
     }
 }

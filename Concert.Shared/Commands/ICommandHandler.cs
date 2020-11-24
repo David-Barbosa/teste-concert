@@ -1,5 +1,4 @@
-﻿
-namespace Concert.Shared.Commands
+﻿namespace Concert.Shared.Commands
 {
     public interface ICommandHandler<T> where T : ICommand
     {

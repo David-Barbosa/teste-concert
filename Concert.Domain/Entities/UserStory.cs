@@ -11,10 +11,10 @@ namespace Concert.Domain.Entities
         {
             Description = description;
 
-            new ValidationContract().IsNotNullOrEmpty(Description, "Descrição", "Descrição não pode ser nulo");
-            new ValidationContract().HasMinLen(Description, 20, "Descriçao", "Descrição deve conter no mínimo 20 caracteres");
+            AddNotifications(new ValidationContract().IsNotNullOrEmpty(Description, "Descrição", "Descrição não pode ser nulo"));
+            AddNotifications(new ValidationContract().HasMinLen(Description, 20, "Descriçao", "Descrição deve conter no mínimo 20 caracteres"));
         }
 
-        public string Description { get; set; }
+        public string Description { get; private set; }
     }
 }
